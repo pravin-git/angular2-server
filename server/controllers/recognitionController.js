@@ -119,3 +119,14 @@ module.exports.getLikesCount = function(req, res){
             return res.status(500).send("error in getting like count");
         })
 }
+
+module.exports.isRecognitionLikedByMe = function(req, res){
+    
+    Like.count({$and:[ { "recognitionId": req.body.recognitionId}, { "likedBy": req.body.userId}]}) 
+        .then(function(cnt){
+            return res.status(200).json({count:cnt});
+        })
+        .catch(function(err){
+            return res.status(500).send("error in getting isLikedByMe count");
+        })
+}

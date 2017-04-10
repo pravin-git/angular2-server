@@ -57,7 +57,7 @@ secureRoute.get('/comment/count/:recognitionId', recognitionController.getCommen
 
 app.post('/like/add', recognitionController.LikeRecognition);
 secureRoute.get('/like/count/:recognitionId', recognitionController.getLikesCount);
-
+secureRoute.post('/isRecognitionLikedByMe', recognitionController.isRecognitionLikedByMe);
 
 app.listen(9000, function(){
     console.log('--------------------------')
