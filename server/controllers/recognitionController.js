@@ -68,7 +68,7 @@ module.exports.getCommentOnRecognition = function(req, res){
     var query = Comment.find({"recognitionId": req.params.recognitionId}).sort({CommentDate: -1});
 
     // query.select('recognition recognitionDate creator').populate('creator').exec()
-    query.select('comment CommentDate commentedBy').populate('user').exec()
+    query.select('comment CommentDate commentedBy').populate('commentedBy').exec()
     .then(function(recs){
         return res.status(200).json({data:recs});
     })
