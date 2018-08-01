@@ -7,6 +7,7 @@ var jwt = require('jsonwebtoken');
 var config = require('./server/config/config.js');
 var userController = require('./server/controllers/userController');
 var recognitionController = require('./server/controllers/recognitionController');
+var fakeUserController = require('./server/controllers/fakeUserController');
 
 //object Instantiation
 var app = express();
@@ -53,11 +54,13 @@ app.post('/comment/add', recognitionController.CommentOnRecognition);
 secureRoute.get('/getcomment/:recognitionId', recognitionController.getCommentOnRecognition),
 secureRoute.get('/comment/count/:recognitionId', recognitionController.getCommentCount);
 
-
-
 app.post('/like/add', recognitionController.LikeRecognition);
 secureRoute.get('/like/count/:recognitionId', recognitionController.getLikesCount);
 secureRoute.post('/isRecognitionLikedByMe', recognitionController.isRecognitionLikedByMe);
+
+//fakeUserService
+app.post('/user/signin', fakeUserController.signIn)
+
 
 app.listen(9000, function(){
     console.log('--------------------------')

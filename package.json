@@ -3,14 +3,13 @@
   "author": "Pravin Pawar",
   "version": "1.0.0",
   "repository": {
-        "type": "git",
-        "url": ""
+    "type": "git",
+    "url": ""
   },
   "main": "server.js",
   "scripts": {
     "test": "node server"
   },
-  
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
